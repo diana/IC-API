@@ -2,12 +2,12 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
-        render json: @users, include: [:games]
+        render json: @users, include: [:games, :scenarios]
     end
 
     def show
         @user = User.find(params[:id])
-        render json: @user, include: [:games]
+        render json: @user, include: [:games, :scenarios]
     end
 
     def user
