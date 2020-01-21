@@ -5,18 +5,24 @@ class ScenariosController < ApplicationController
   def index
     @scenarios = Scenario.all
 
-    render json: @scenarios
+    render json: @scenarios, include: [:questions]
   end
 
   # GET /scenarios/1
   def show
-    @scenario = Scenario.find(params[:game_id])
-    render json: @scenario
+    @scenario = Scenario.find(params[:id])
+    render json: @scenario, include: [:questions]
   end
 
   # POST /scenarios
   def create
-    @scenario = Scenario.new(scenario_params)
+    # @scenario = Scenario.new(scenario_params)
+    @scenario = Scenario.new({
+      game_id: params[:game_id],
+      title: params[:title],
+      description: params[:description],
+      image: params[:image]
+    })
 
     if @scenario.save
       render json: @scenario, status: :created, location: @scenario
