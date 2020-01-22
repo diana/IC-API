@@ -5,14 +5,14 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
 
-    render json: @games, include: [:scenarios, :questions]
+    render json: @games, include: [:scenarios, :questions, :attempts, :answers]
   end
 
   # GET /games/1
   def show
     @game = Game.find(params[:id])
     
-    render json: @game, include: [:scenarios, :questions]
+    render json: @game, include: [:scenarios, :questions, :attempts, :answers]
   end
 
   # POST /games

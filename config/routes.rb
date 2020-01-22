@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :answers
+  resources :attempts
   resources :questions
   resources :scenarios
   resources :games
