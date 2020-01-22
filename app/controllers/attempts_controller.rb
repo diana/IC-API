@@ -10,7 +10,7 @@ class AttemptsController < ApplicationController
 
   # GET /attempts/1
   def show
-    render json: @attempt
+    render json: @attempt, include: [:answers]
   end
 
   # POST /attempts

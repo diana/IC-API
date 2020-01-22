@@ -5,12 +5,12 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
 
-    render json: @questions
+    render json: @questions, include: [:answers]
   end
 
   # GET /questions/1
   def show
-    render json: @question
+    render json: @question, include: [:answers]
   end
 
   # POST /questions
