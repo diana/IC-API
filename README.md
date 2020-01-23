@@ -10,7 +10,7 @@ The database is PostgeSQL and database diagrame is pictured below:
 
 ![dbdiagram](https://github.com/diana/IC-API/blob/master/Untitled%20(1).png?raw=true)
 
-####Features in progress:
+### Features in progress:
 + Implamenting the `options` attribute of the `questions` table. This attribute is set up as an array so that it can hold optional answers for multiple choice/dropdown answering.
 + Update the `users` table to hold a username, company name, and other attributes as needed by users.
 + Update the `questions` table to include a question type, such as true/false, multiple choice, short & long answers. Currently only has option for text answers. 
