@@ -3,6 +3,7 @@ class CreateQuestions < ActiveRecord::Migration[6.0]
     create_table :questions do |t|
       t.string :question
       t.string :answer
+      t.string :type
       t.text :options, array: true, default: []
       t.references :scenario, null: false, foreign_key: true
 

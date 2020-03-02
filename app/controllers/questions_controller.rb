@@ -19,7 +19,8 @@ class QuestionsController < ApplicationController
       question: params[:question],
       answer: params[:answer],
       scenario_id: params[:scenario_id],
-      options: params[:options]
+      options: params[:options],
+      type: params[:type]
     })
 
     if @question.save
@@ -35,7 +36,8 @@ class QuestionsController < ApplicationController
       question: params[:question],
       answer: params[:answer],
       scenario_id: params[:scenario_id],
-      options: params[:options]
+      options: params[:options],
+      type: params[:type]
     })
       render json: @question
     else
