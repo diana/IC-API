@@ -48,28 +48,12 @@ ActiveRecord::Schema.define(version: 2020_01_21_235600) do
   create_table "questions", force: :cascade do |t|
     t.string "question"
     t.string "answer"
+    t.string "type"
     t.text "options", default: [], array: true
     t.bigint "scenario_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["scenario_id"], name: "index_questions_on_scenario_id"
-  end
-
-  create_table "room_tasks", force: :cascade do |t|
-    t.bigint "room_id"
-    t.bigint "task_id"
-    t.boolean "task_status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["room_id"], name: "index_room_tasks_on_room_id"
-    t.index ["task_id"], name: "index_room_tasks_on_task_id"
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.string "name"
-    t.integer "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "scenarios", force: :cascade do |t|
@@ -80,13 +64,6 @@ ActiveRecord::Schema.define(version: 2020_01_21_235600) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_scenarios_on_game_id"
-  end
-
-  create_table "tasks", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
